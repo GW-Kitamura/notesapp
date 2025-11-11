@@ -1,0 +1,83 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111827; /* gray-900 */
+  --muted: #6b7280; /* gray-500 */
+  --border: #e5e7eb; /* gray-200 */
+  --card: #ffffff;
+  --green: #16a34a; /* green-600 */
+  --green-700: #15803d;
+  --green-soft: #dcfce7; /* green-100 */
+  --red: #dc2626; /* red-600 */
+  --red-700: #b91c1c;
+}
+.dark {
+  --bg: #0a0a0a;
+  --fg: #e5e7eb; /* gray-200 */
+  --muted: #9ca3af; /* gray-400 */
+  --border: #1f2937; /* gray-800 */
+  --card: #0f0f10;
+  --green-soft: rgba(16,185,129,0.15);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.app { min-height: 100vh; }
+.container { max-width: 720px; margin: 0 auto; padding: 24px; }
+
+/* ヘッダー */
+.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
+.header__left { display: flex; align-items: center; gap: 12px; }
+.logo { width: 28px; height: 28px; border-radius: 8px; background: var(--green); }
+.title { font-size: 24px; font-weight: 700; letter-spacing: .2px; }
+.badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 600; }
+.badge--filled { background: var(--green); color: #fff; }
+.badge--soft { background: var(--green-soft); color: #065f46; }
+
+.header__right { display: flex; align-items: center; gap: 8px; }
+.select, .input, .btn { height: 36px; font-size: 14px; }
+.select, .input { border: 1px solid var(--border); border-radius: 8px; padding: 0 10px; color: var(--fg); background: var(--bg); }
+.select:focus, .input:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--green) 30%, transparent); border-color: var(--green); }
+
+/* ボタン */
+.btn { border-radius: 8px; padding: 0 12px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); cursor: pointer; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+.btn--green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn--green:hover { background: var(--green-700); border-color: var(--green-700); }
+.btn--outline-green { border-color: var(--green); color: color-mix(in oklab, var(--green) 90%, var(--fg)); }
+.btn--outline-green:hover { background: color-mix(in oklab, var(--green) 10%, transparent); }
+.btn--red { background: var(--red); color: #fff; border-color: var(--red); }
+.btn--red:hover { background: var(--red-700); border-color: var(--red-700); }
+
+/* カード/セクション */
+.card { border: 1px solid var(--border); background: var(--card); border-radius: 16px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.card__title { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+.card__desc { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) { .grid--12 { grid-template-columns: repeat(12, minmax(0,1fr)); } }
+.col-9 { grid-column: span 9; }
+.col-3 { grid-column: span 3; }
+
+.meta { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 13px; margin-top: 12px; }
+
+/* リスト */
+.list { list-style: none; margin: 0; padding: 0; }
+.item { border: 1px solid var(--border); border-radius: 16px; padding: 12px; }
+.item + .item { margin-top: 8px; }
+.item__row { display: flex; gap: 12px; align-items: flex-start; }
+.checkbox { width: 16px; height: 16px; accent-color: var(--green); margin-top: 2px; }
+.item__main { min-width: 0; flex: 1; }
+.item__title { font-size: 16px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.item__title--done { text-decoration: line-through; opacity: .6; }
+.item__sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.item__actions { display: flex; gap: 8px; }
+
+.empty { border: 1px dashed var(--border); border-radius: 16px; padding: 32px; text-align: center; color: var(--muted); }
+
+.footer { margin-top: 32px; text-align: center; font-size: 12px; color: var(--muted); }
